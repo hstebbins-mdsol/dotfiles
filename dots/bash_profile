@@ -1,0 +1,41 @@
+# load bashrc
+source ~/.bashrc
+
+# Set GOPATH
+export GOPATH="$HOME/workspace/go"
+export PATH="$PATH:$GOPATH/bin"
+
+# Bash completion setup
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+GIT_PS1_SHOWDIRTYSTATE=true
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# Colorized terminal
+export PS1="\[\033[38;5;6m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;13m\]\W\[$(tput sgr0)\]\[\033[38;5;15m\] \\$ \[$(tput sgr0)\]"
+
+# Filetype colors in terminal
+export CLICOLOR=1
+export LSCOLORS=exfxcxdxbxegedabagacad
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+###
+# Alias
+###
+
+# Bundle
+alias be="bundle exec "
+
+# Pry Rails Console
+alias pry-rails="bundle exec pry -r ./config/environment"
+
+# Lint OpenAPI with Hammertime
+alias lintapi="bundle exec hammertime lint doc/contracts/openapi.yaml"
+
+# Git
+alias gl="git log --graph --all --decorate --oneline"
+
+# Long list
+alias ll="ls -lah"
